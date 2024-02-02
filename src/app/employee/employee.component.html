@@ -1,0 +1,123 @@
+<h2>Employee List</h2>
+<!-- Button trigger modal -->
+<a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#newModal">
+  <i class="fa fa-plus"></i>&nbsp;New Employee
+</a>
+
+<table class="table table-bordered table-striped table-responsive table-hover">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Salary</th>
+  </tr>
+</thead>
+<tbody>
+  <!-- Replace with for loop -->
+   <tr *ngFor="let employee of employeeList">
+                <td>{{employee.name }}</td>
+                <td>{{employee.address}}</td>
+                <td>{{employee.salary}}</td>
+                <td>
+                  <button (click)="EditClick(employee)" class="btn btn-info m-1" data-toggle="modal" data-target="#editModal">
+                    <li class="fa fa-edit"></li>
+                  </button>
+                  <button class="btn btn-danger m-1" (click)="DeleteClick(employee.id)">
+                    <li class="fa fa-trash"></li>
+                  </button>
+                </td>
+            </tr>
+
+</tbody>
+</table>
+
+<!-- newModal -->
+
+<div class="modal fade" id="newModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New Employee</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row m-2">
+          <div class="col-md-4">
+            <label class="form-label" for="txtname">Name</label>
+          </div>
+          <div class="col-md-8">
+            <input id="txtname" class="form-control" type="text" name="name" placeholder="Enter Name" />
+          </div>
+        </div>
+        <div class="form-group row m-2">
+          <div class="col-md-4">
+            <label class="form-label" for="txtaddress">Address</label>
+          </div>
+          <div class="col-md-8">
+            <input id="txtaddress" class="form-control" type="text" name="address" placeholder="Enter Address" />
+          </div>
+        </div>
+        <div class="form-group row m-2">
+          <div class="col-md-4">
+            <label class="form-label" for="txtsalary">Salary</label>
+          </div>
+          <div class="col-md-8">
+            <input id="txtsalary" class="form-control" type="number" name="salary" placeholder="Enter Salary" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+<!-- editModal -->
+<div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Employee</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row m-2">
+          <div class="col-md-4">
+            <label class="form-label" for="txtName">Name</label>
+          </div>
+          <div class="col-md-8">
+            <input id="txtName" class="form-control" type="text" name="name" placeholder="Enter Name" />
+          </div>
+        </div>
+        <div class="form-group row m-2">
+          <div class="col-md-4">
+            <label class="form-label" for="txtAddress">Address</label>
+          </div>
+          <div class="col-md-8">
+            <input id="txtAddress" class="form-control" type="text" name="address" placeholder="Enter Address" />
+          </div>
+        </div>
+        <div class="form-group row m-2">
+          <div class="col-md-4">
+            <label class="form-label" for="txtSalary">Salary</label>
+          </div>
+          <div class="col-md-8">
+            <input id="txtSalary" class="form-control" type="number" name="salary" placeholder="Enter Salary" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+
+
